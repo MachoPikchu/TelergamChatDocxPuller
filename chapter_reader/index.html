@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter Reader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="controls">
+    <label for="fontSelect">Font:</label>
+    <select id="fontSelect">
+      <option value="serif">Serif</option>
+      <option value="sans-serif">Sans-Serif</option>
+      <option value="monospace">Monospace</option>
+    </select>
+
+    <label for="fontSize">Size:</label>
+    <input type="range" id="fontSize" min="14" max="28" value="18">
+
+    <label for="themeSelect">Theme:</label>
+    <select id="themeSelect">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="night">Night</option>
+    </select>
+  </div>
+
+  <button id="menuToggle" aria-label="Toggle chapter menu">☰ Chapters</button>
+
+  <div class="container">
+    <aside class="chapter-list">
+      <div class="menu-header">
+        <h3>Chapters</h3>
+        <button id="closeMenu" aria-label="Close menu">×</button>
+      </div>
+      <ul id="chapterMenu"></ul>
+    </aside>
+
+    <main id="content" class="chapter-content">
+      <h2>Welcome</h2>
+      <p>Select a chapter to begin reading.</p>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
