@@ -8,25 +8,55 @@
 </head>
 <body>
   <div class="controls">
-    <label for="fontSelect">Font:</label>
-    <select id="fontSelect">
-      <option value="serif">Serif</option>
-      <option value="sans-serif">Sans-Serif</option>
-      <option value="monospace">Monospace</option>
-    </select>
-
-    <label for="fontSize">Size:</label>
-    <input type="range" id="fontSize" min="14" max="28" value="18">
-
-    <label for="themeSelect">Theme:</label>
-    <select id="themeSelect">
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="night">Night</option>
-    </select>
+    <button id="settingsToggle" aria-label="Open settings">⚙️ Settings</button>
   </div>
 
   <button id="menuToggle" aria-label="Toggle chapter menu">☰ Chapters</button>
+
+  <!-- Settings Modal -->
+  <div class="modal" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Reader Settings</h3>
+        <button id="closeSettings" aria-label="Close settings">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <label for="fontSelect">Font Family:</label>
+          <select id="fontSelect">
+            <option value="serif">Serif</option>
+            <option value="sans-serif">Sans-Serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Palatino">Palatino</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="fontSize">Font Size: <span id="fontSizeValue">18</span>px</label>
+          <input type="range" id="fontSize" min="14" max="28" value="18">
+        </div>
+
+        <div class="setting-group">
+          <label for="lineHeight">Line Height: <span id="lineHeightValue">1.6</span></label>
+          <input type="range" id="lineHeight" min="1.2" max="2.4" step="0.1" value="1.6">
+        </div>
+
+        <div class="setting-group">
+          <label for="themeSelect">Theme:</label>
+          <select id="themeSelect">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="night">Night</option>
+            <option value="sepia">Sepia</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="resetSettings">Reset to Defaults</button>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
     <aside class="chapter-list">
@@ -37,13 +67,38 @@
       <ul id="chapterMenu"></ul>
     </aside>
 
-    <main id="content" class="chapter-content">
+        <main id="content" class="chapter-content">
+      <div class="chapter-navigation">
+        <button id="prevChapter" class="nav-button" disabled>
+          <span class="nav-arrow">←</span>
+          <span class="nav-title" id="prevChapterTitle"></span>
+        </button>
+        <button id="nextChapter" class="nav-button" disabled>
+          <span class="nav-title" id="nextChapterTitle"></span>
+          <span class="nav-arrow">→</span>
+        </button>
+      </div>
+
       <h2>Welcome</h2>
       <p>Select a chapter to begin reading.</p>
+
+      <!-- New Bottom Navigation -->
+      <div class="chapter-navigation bottom-navigation">
+        <button id="prevChapterBottom" class="nav-button" disabled>
+          <span class="nav-arrow">←</span>
+          <span class="nav-title" id="prevChapterTitleBottom"></span>
+        </button>
+        <button id="nextChapterBottom" class="nav-button" disabled>
+          <span class="nav-title" id="nextChapterTitleBottom"></span>
+          <span class="nav-arrow">→</span>
+        </button>
+      </div>
     </main>
+
 
     <div class="overlay" id="overlay"></div>
   </div>
+
 
   <script src="script.js"></script>
 </body>

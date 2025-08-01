@@ -169,3 +169,172 @@ body.night .menu-header {
     margin-left: 0;
   }
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-speed) ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--bg);
+  color: var(--text);
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+.setting-group {
+  margin-bottom: 20px;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.setting-group select,
+.setting-group input[type="range"] {
+  width: 100%;
+}
+
+#resetSettings {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* New Theme */
+body.sepia {
+  --bg: #f4ecd8;
+  --text: #5b4636;
+}
+
+body.sepia .chapter-list {
+  background-color: #e6d9c1;
+  border-right-color: #d4c4a3;
+}
+
+body.sepia .chapter-list li {
+  border-bottom-color: #d4c4a3;
+}
+
+body.sepia .menu-header {
+  background-color: #d4c4a3;
+  border-bottom-color: #c2b38b;
+}
+/* Chapter Navigation */
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.nav-button {
+  background: none;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  border-color: #aaa;
+  background-color: rgba(0,0,0,0.05);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #eee;
+}
+
+.nav-title {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-arrow {
+  font-weight: bold;
+}
+
+/* Theme-specific nav button styles */
+body.dark .nav-button,
+body.night .nav-button {
+  border-color: #444;
+}
+
+body.dark .nav-button:hover,
+body.night .nav-button:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+body.sepia .nav-button {
+  border-color: #c2b38b;
+}
+
+body.sepia .nav-button:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
+/*11*/
+
